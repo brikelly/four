@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Puzzle Four
+  </title>
+  <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+  <script src="four.js"></script>
+  <script type="text/javascript">
+        function codeAddress() {
+            document.getElementById("encrypted").innerHTML = getEncryptedString();
+        }
+        window.onload = codeAddress;
+  </script>
+<body>
+
+<p>Puzzle Four</p>
+<button type="button" onclick="solveItClicked()">Solve It!</button>
+
+<p id="message">The final answer is within this encrypted string. Read the JS source to find out how to decrypt it.</p>
+<textarea cols="100" rows="15" id="encrypted"></textarea>
+
+<p id="decrypted"></p>
+
+</body>
+</html>
