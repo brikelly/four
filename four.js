@@ -2,35 +2,36 @@ var key1 = 0; /* TODO - change this to the value of key #1 */
 var key2 = 0; /* TODO - change this to the value of key #2 */
 var key3 = 0; /* TODO - change this to the value of key #3 */
 
-//////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 //
-// To find the information within the encrypted string, do the following tasks in order:
+// To find the information within the encrypted string, do the following tasks
+// in this order:
 //
-//   1. Remove chunks of padding
+//   1. Remove chunks of random padding characters
 //
 // The padding pattern is as follows: given a source string of "XYZ" and
-// a key of value 3, and where "@" represents random padding characters
-// that should be stripped out, the pattern would be "@@@X@@@Y@@@Z@@@".
-// If the key had a value of 2, the pattern would be "@@X@@Y@@Z@@".
+// a key of value 3, the string might look something like "H5RXI8GYKOLZR9E".
+// If the key had a value of 2, the string might be "O9X7DYT4ZBK".
 //
-// Remove all the padded characters using the value of key #1 to
+// Remove all the padding characters using the value of key #1 to
 // determine the size of each padding chunk, produce a new unpadded string,
 // and use that string in the next step.
 //
 //   2. Offset each remaining character
 //
-// Subtract the value of key #2 from each character's value in the string, and
-// produce a new string with each character having that offset applied. Use
-// the resulting string in the next step.
+// Subtract the value of key #2 from each character's code value in the string,
+// and produce a new string with each character having that offset applied. Use
+// the resulting string in the next step. For example, given the string "ABC123"
+// and a key value of 2, the resulting string would be "?@A/01".
 //
 //   3. XOR each character
 //
-// XOR each character value of the string with the value of key #3 and produce
-// the final unencrypted string to return. If you've done everything
-// correctly, the MD5 hash of your string will match the expected hash value,
-// and you'll know that you're done.
+// Bitwise XOR each character value of the remaining string with the value of
+// key #3 and produce the final unencrypted string to return. If you've done
+// everything correctly, the MD5 hash of your string will match the expected
+// hash value, and you'll know that you're done.
 //
-//////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 function decrypt(text) {
   // TODO - decrypt the data in "text" using the 3 puzzle keys by following the
